@@ -1,0 +1,69 @@
+---
+title: "Try_out_script"
+author: "Lisa Pramann"
+date: "11 3 2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#Import scripts 
+source("98_packages.R")
+source("1_data_wrangling.R")
+```
+
+
+Filtering 
+```{r}
+
+Germany_data <- OECD_data_raw %>% 
+  filter(Country == "Germany")
+
+Germany_data %>% 
+ggplot(aes(x=Skills, y=Value, fill=factor(Industry))) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_discrete(name="Industry",
+                      labels=c("ICT", "Manufacturing")) +
+  coord_flip()
+
+```
+
+```{r}
+Sweden_data <- OECD_data_raw %>% 
+  filter(Country == "Sweden")
+
+Sweden_data %>% 
+ggplot(aes(x=Skills, y=Value, fill=factor(Industry))) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_discrete(name="Industry",
+                      labels=c("ICT", "Manufacturing")) +
+  coord_flip()
+```
+
+US 
+```{r}
+US_data <- OECD_data_raw %>% 
+  filter(Country == "United States")
+
+US_data %>% 
+ggplot(aes(x=Skills, y=Value, fill=factor(Industry))) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_discrete(name="Industry",
+                      labels=c("ICT", "Manufacturing")) +
+  coord_flip()
+```
+
+Denmark
+```{r}
+Denmark_data <- OECD_data_raw %>% 
+  filter(Country == "Denmark")
+
+Denmark_data %>% 
+ggplot(aes(x=Skills, y=Value, fill=factor(Industry))) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_discrete(name="Industry",
+                      labels=c("ICT", "Manufacturing")) +
+  coord_flip()
+```
+
+
