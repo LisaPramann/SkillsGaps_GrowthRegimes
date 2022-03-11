@@ -67,3 +67,16 @@ ggplot(aes(x=Skills, y=Value, fill=factor(Industry))) +
 ```
 
 
+```{r}
+Hungary_data <- OECD_data_raw %>% 
+  filter(Country == "Hungary")
+
+Hungary_data %>% 
+ggplot(aes(x=Skills, y=Value, fill=factor(Industry))) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_discrete(name="Industry",
+                      labels=c("ICT", "Manufacturing")) +
+  coord_flip()
+```
+
+
