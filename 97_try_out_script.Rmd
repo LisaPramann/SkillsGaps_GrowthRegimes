@@ -20,13 +20,26 @@ Germany_data <- OECD_data_raw %>%
   filter(Country == "Germany")
 
 Germany_data %>% 
-ggplot(aes(x=Skills, y=Value, fill=factor(Industry))) + 
+ggplot(aes(x=Skills, y=Value, fill = factor(Industry))) + 
   geom_bar(stat = "identity", position = "dodge") +
   scale_fill_discrete(name="Industry",
                       labels=c("ICT", "Manufacturing")) +
   coord_flip()
 
 ```
+
+```{r}
+Austria_data <- OECD_data_raw %>% 
+  filter(Country == "Austria")
+
+Austria_data %>% 
+ggplot(aes(x=Skills, y=Value, fill=factor(Industry))) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_discrete(name="Industry",
+                      labels=c("ICT", "Manufacturing")) +
+  coord_flip()
+```
+
 
 ```{r}
 Sweden_data <- OECD_data_raw %>% 
@@ -40,18 +53,7 @@ ggplot(aes(x=Skills, y=Value, fill=factor(Industry))) +
   coord_flip()
 ```
 
-US 
-```{r}
-US_data <- OECD_data_raw %>% 
-  filter(Country == "United States")
 
-US_data %>% 
-ggplot(aes(x=Skills, y=Value, fill=factor(Industry))) + 
-  geom_bar(stat = "identity", position = "dodge") +
-  scale_fill_discrete(name="Industry",
-                      labels=c("ICT", "Manufacturing")) +
-  coord_flip()
-```
 
 Denmark
 ```{r}
@@ -68,15 +70,13 @@ ggplot(aes(x=Skills, y=Value, fill=factor(Industry))) +
 
 
 ```{r}
-Hungary_data <- OECD_data_raw %>% 
-  filter(Country == "Hungary")
-
-Hungary_data %>% 
-ggplot(aes(x=Skills, y=Value, fill=factor(Industry))) + 
+ggplot(subset(OECD_data_raw,Country == c("Hungary")),
+       aes(x=Skills, y=Value, fill = factor(Industry))) + 
   geom_bar(stat = "identity", position = "dodge") +
+  coord_flip() +
+  theme_minimal() +
   scale_fill_discrete(name="Industry",
-                      labels=c("ICT", "Manufacturing")) +
-  coord_flip()
+                      labels=c("ICT", "Manufacturing"))
 ```
 
 
