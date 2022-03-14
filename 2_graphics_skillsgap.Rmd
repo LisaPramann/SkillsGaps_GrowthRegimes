@@ -42,7 +42,8 @@ ggplot(subset(OECD_data_raw,Country == c("Germany", "Austria")),
   scale_fill_discrete(name="Industry",
                       labels=c("ICT", "Manufacturing"))
 
-swe <- ggplot(subset(OECD_data_raw,Country == c("Sweden")),
+#swe <- 
+  ggplot(subset(OECD_data_raw,Country == c("Sweden")),
        aes(x=Skills, y=Value, fill = factor(Industry))) + 
   geom_bar(stat = "identity", position = "dodge") +
   coord_flip() +
@@ -50,7 +51,8 @@ swe <- ggplot(subset(OECD_data_raw,Country == c("Sweden")),
   scale_fill_discrete(name="Industry",
                       labels=c("ICT", "Manufacturing"))
 
-nor <- ggplot(subset(OECD_data_raw,Country == c("Norway")),
+#nor <- 
+  ggplot(subset(OECD_data_raw,Country == c("Norway")),
        aes(x=Skills, y=Value, fill = factor(Industry))) + 
   geom_bar(stat = "identity", position = "dodge") +
   coord_flip() +
